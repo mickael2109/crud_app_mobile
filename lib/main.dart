@@ -1,10 +1,16 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, unnecessary_new, sort_child_properties_last
 
 import 'package:flutter/material.dart';
+import 'package:p5_app_with_sqlite/model/databaseClient.dart';
 import 'package:p5_app_with_sqlite/widgets/home_controller.dart';
 
 void main() {
   runApp(const MyApp());
+  _createTable();
+}
+
+void _createTable() async {
+  await SQLHelper.db();
 }
 
 class MyApp extends StatelessWidget {

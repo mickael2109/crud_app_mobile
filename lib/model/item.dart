@@ -2,23 +2,28 @@
 
 class Item {
   late int id;
-  late String nom;
+  late String title;
+  late String description;
 
   Item();
 
   void fromMap(Map<String, dynamic> map) {
-    this.id = map['id'];
-    this.nom = map['nom'];
+    if(map['id'] != null){
+      this.id = map['id'];
+    }
+    this.title = map['title'];
+    this.description = map['description'];
   }
 
   Map<String, dynamic> toMap(){
     Map<String, dynamic> map = {
-      'nom' : this.nom
+      'title' : this.title,
+      'description' : this.description,
+      'createdAt' : DateTime.now().toString(),
     };
-    if(id != null){
-      map['id'] = this.id;
-      print('id io : ${this.id}');
-    }
+    // if(id != null){
+    //   map['id'] = this.id;
+    // }
     return map; 
   }
 }
